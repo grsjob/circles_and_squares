@@ -15,6 +15,7 @@ const FormsList = () => {
           form={item.form}
           color={item.color}
           tone={item.dark}
+          ariaLabel={item.form}
         />
       ))}
     </StyledFormsList>

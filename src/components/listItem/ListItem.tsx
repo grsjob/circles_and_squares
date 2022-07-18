@@ -6,11 +6,17 @@ interface ListItemProps {
   form: Forms;
   color: Colors;
   tone: boolean;
+  ariaLabel: Forms;
 }
 
-const ListItem = ({ form, color, tone }: ListItemProps) => {
+const ListItem = ({ form, color, tone, ariaLabel }: ListItemProps) => {
   return (
-    <StyledListItem form={form} color={color} tone={tone}></StyledListItem>
+    <StyledListItem
+      form={form}
+      color={color}
+      tone={tone}
+      aria-label={ariaLabel}
+    ></StyledListItem>
   );
 };
 
