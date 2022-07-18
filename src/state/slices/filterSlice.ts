@@ -18,8 +18,8 @@ const slice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    setForm: (state, { payload: form }: PayloadAction<string[]>) => {
-      state.forms = form;
+    setForm: (state, { payload: form }: PayloadAction<string>) => {
+      state.forms.push(form);
     },
     deleteForm: (state, { payload: form }: PayloadAction<string>) => {
       state.forms = state.forms.filter((formItem) => formItem !== form);
