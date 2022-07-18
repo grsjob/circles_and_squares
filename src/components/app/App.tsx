@@ -1,11 +1,11 @@
 import React from "react";
 import "../../assets/scss/App.scss";
-import FormsList from "../forms-list/FormsList";
+import FormsListSection from "../forms-list-section/FormsListSection";
 
 const App = () => {
   return (
     <>
-      <FormsList />
+      <FormsListSection />
     </>
   );
 };
