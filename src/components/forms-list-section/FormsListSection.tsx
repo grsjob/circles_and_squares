@@ -3,6 +3,7 @@ import test from "../../assets/test.json";
 import ListItem from "../listItem/ListItem";
 import { IData } from "../../types/data";
 import { StyledFormsList } from "./formsListStyles";
+import FormsFilter from "../filters/forms-filter/FormsFilter";
 
 const FormsListSection = () => {
   const data: IData[] = test;
@@ -10,6 +11,9 @@ const FormsListSection = () => {
   return (
     <section>
       <h2 className="visually-hidden">Список фигур</h2>
+      <header>
+        <FormsFilter />
+      </header>
       <StyledFormsList>
         {data.map((item) => (
           <ListItem

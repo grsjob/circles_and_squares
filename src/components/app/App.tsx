@@ -6,6 +6,7 @@ import FiltersSection from "../filters/filters-section ";
 const App = () => {
   return (
     <>
+      <h1>Круги и квадраты, v.1.0</h1>
       <FiltersSection />
       <FormsListSection />
     </>

@@ -1,5 +1,6 @@
 import React from "react";
 import ColorsFilter from "./colors-filter/ColorsFilter";
+import ToneFilter from "./tone-filter/ToneFilter";
 
 const FiltersSection = () => {
   return (
@@ -8,6 +9,9 @@ const FiltersSection = () => {
       <ul>
         <li>
           <ColorsFilter />
+        </li>
+        <li>
+          <ToneFilter />
         </li>
       </ul>
     </section>

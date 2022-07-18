@@ -14,15 +14,15 @@ const FormsFilter = () => {
     <ul>
       <li>
         <input type="checkbox" name="circle" onChange={handleChange} />
-        <label htmlFor="circle">красные</label>
+        <label htmlFor="circle">круги</label>
       </li>
       <li>
         <input type="checkbox" name="square" onChange={handleChange} />
-        <label htmlFor="square">зеленые</label>
+        <label htmlFor="square">квадраты</label>
       </li>
       <li>
         <input type="checkbox" name="triangle" onChange={handleChange} />
-        <label htmlFor="triangle">зеленые</label>
+        <label htmlFor="triangle">треугольники</label>
       </li>
     </ul>
   );
