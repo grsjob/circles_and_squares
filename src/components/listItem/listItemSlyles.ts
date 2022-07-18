@@ -12,9 +12,12 @@ export const StyledListItem = styled.li`
         `;
       case "triangle":
         return css`
+          width: 0;
+          height: 0;
           border-left: 64px solid transparent;
           border-right: 64px solid transparent;
           border-bottom: 128px solid ${(props) => props.color};
+          background-color: #fff;
         `;
     }
   }}

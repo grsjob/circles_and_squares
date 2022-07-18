@@ -5,7 +5,7 @@ import { StyledListItem } from "./listItemSlyles";
 interface ListItemProps {
   form: Forms;
   color: Colors;
-  tone: number;
+  tone: boolean;
 }
 
 const ListItem = ({ form, color, tone }: ListItemProps) => {
