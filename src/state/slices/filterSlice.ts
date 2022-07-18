@@ -24,8 +24,8 @@ const slice = createSlice({
     deleteForm: (state, { payload: form }: PayloadAction<string>) => {
       state.forms = state.forms.filter((formItem) => formItem !== form);
     },
-    setColor: (state, { payload: color }: PayloadAction<string[]>) => {
-      state.colors = color;
+    setColor: (state, { payload: color }: PayloadAction<string>) => {
+      state.colors.push(color);
     },
     deleteColor: (state, { payload: color }: PayloadAction<string>) => {
       state.colors = state.colors.filter((colorItem) => colorItem !== color);

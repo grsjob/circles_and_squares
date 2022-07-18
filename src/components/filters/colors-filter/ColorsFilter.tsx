@@ -1,13 +1,13 @@
 import React, { ChangeEvent } from "react";
 import { store } from "../../../state/store";
-import { deleteForm, setForm } from "../../../state/slices/filterSlice";
+import { deleteColor, setColor } from "../../../state/slices/filterSlice";
 
 const ColorsFilter = () => {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     if (e.target.checked) {
-      store.dispatch(setForm(e.target.name));
+      store.dispatch(setColor(e.target.name));
     } else {
-      store.dispatch(deleteForm(e.target.name));
+      store.dispatch(deleteColor(e.target.name));
     }
   }
   return (
