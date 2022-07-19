@@ -5,7 +5,7 @@ import {
   BurgerButton,
   FormListHeader,
   StyledFormsList,
-} from "./formsListStyles";
+} from "./shapesListStyles";
 import FormsFilter from "../filters/forms-filter/FormsFilter";
 import { store } from "../../state/store";
 import { sidePanelVisibleToggle } from "../../state/slices/appSlice";
@@ -16,7 +16,7 @@ interface FormsListSectionProps {
   columns: number;
 }
 
-const FormsListSection = ({ data, columns }: FormsListSectionProps) => {
+const ShapeListSection = ({ data, columns }: FormsListSectionProps) => {
   const { sidePanelVisible } = useStore(({ app }) => app);
 
   return (
@@ -46,4 +46,4 @@ const FormsListSection = ({ data, columns }: FormsListSectionProps) => {
   );
 };
 
-export default FormsListSection;
+export default ShapeListSection;

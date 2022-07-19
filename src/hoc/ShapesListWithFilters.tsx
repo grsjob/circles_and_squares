@@ -1,20 +1,20 @@
 import React, { ComponentType } from "react";
 import { IData } from "../types/data";
-import FormsListSection from "../components/forms-list-section/FormsListSection";
+import ShapesListSection from "../components/shapes-list-section/ShapeListSection";
 import { useStore } from "../state/storeHooks";
 import { useFilters } from "../components/filters/filters-hooks";
 
-interface FormsListWithFiltersProps {
+interface ShapesListWithFiltersProps {
   data: IData[];
   columns: number;
 }
 
-const ContainerWithFilters = <T extends FormsListWithFiltersProps>(
+const ContainerWithFilters = <T extends ShapesListWithFiltersProps>(
   Component: ComponentType<T>,
 ) => {
   const displayName = Component.displayName || Component.name || "Component";
   const ComponentWithFilters = (
-    props: Omit<T, keyof FormsListWithFiltersProps>,
+    props: Omit<T, keyof ShapesListWithFiltersProps>,
   ) => {
     const { columns } = useStore(({ filter }) => filter);
     const dataArray = useFilters();
@@ -25,4 +25,4 @@ const ContainerWithFilters = <T extends FormsListWithFiltersProps>(
   return ComponentWithFilters;
 };
 
-export const FormsListWithFilters = ContainerWithFilters(FormsListSection);
+export const ShapesListWithFilters = ContainerWithFilters(ShapesListSection);
