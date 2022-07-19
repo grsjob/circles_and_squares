@@ -18,3 +18,11 @@ export function toneFilter(tone: string, data: IData[]) {
       return data.filter((item) => item.dark === false);
   }
 }
+
+export function setCheckboxNamesMap(arrayNames: string[]) {
+  const obj = new Map();
+  arrayNames.forEach((item) => {
+    obj.set(item, item);
+  });
+  return obj;
+}

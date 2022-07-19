@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import ColorsFilter from "./colors-filter/ColorsFilter";
 import ToneFilter from "./tone-filter/ToneFilter";
 import {
@@ -9,12 +9,23 @@ import {
 } from "./filtersSectionStyles";
 import { useStore } from "../../state/storeHooks";
 import { store } from "../../state/store";
-import { setColumnsNumber } from "../../state/slices/filterSlice";
+import {
+  deleteColor,
+  setColor,
+  setColumnsNumber,
+} from "../../state/slices/filterSlice";
 
 const FiltersSection = () => {
   const { sidePanelVisible } = useStore(({ app }) => app);
-  const { columns } = useStore(({ filter }) => filter);
+  const { columns, tone, forms, colors } = useStore(({ filter }) => filter);
 
+  function handleChangeForColors(e: ChangeEvent<HTMLInputElement>) {
+    if (e.target.checked) {
+      store.dispatch(setColor(e.target.name));
+    } else {
+      store.dispatch(deleteColor(e.target.name));
+    }
+  }
   return (
     <>
       {sidePanelVisible && (
@@ -22,7 +33,10 @@ const FiltersSection = () => {
           <h2 className="visually-hidden">Список фильтров</h2>
           <StyledFiltersList>
             <StyledElementFiltersList>
-              <ColorsFilter />
+              <ColorsFilter
+                colors={colors}
+                handleChange={handleChangeForColors}
+              />
             </StyledElementFiltersList>
             <StyledElementFiltersList>
               <ToneFilter />
@@ -33,6 +47,7 @@ const FiltersSection = () => {
                 name="columns"
                 type="number"
                 placeholder="from 1 to 4"
+                value={columns}
                 onChange={(e) =>
                   store.dispatch(setColumnsNumber(parseInt(e.target.value, 10)))
                 }
