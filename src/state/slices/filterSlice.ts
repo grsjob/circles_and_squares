@@ -30,9 +30,13 @@ const slice = createSlice({
     deleteColor: (state, { payload: color }: PayloadAction<string>) => {
       state.colors = state.colors.filter((colorItem) => colorItem !== color);
     },
+    setTone: (state, { payload: tone }: PayloadAction<string>) => {
+      state.tone = tone;
+    },
   },
 });
 
-export const { setForm, deleteForm, setColor, deleteColor } = slice.actions;
+export const { setForm, deleteForm, setColor, deleteColor, setTone } =
+  slice.actions;
 
 export default slice.reducer;
