@@ -18,3 +18,7 @@ export const StyledElementFiltersList = styled.ul`
   margin-bottom: 50px;
   padding: 0;
 `;
+
+export const StyledInputNumber = styled.input`
+  width: 70px;
+`;

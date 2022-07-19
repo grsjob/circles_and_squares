@@ -37,7 +37,11 @@ const slice = createSlice({
       state,
       { payload: columnsNumber }: PayloadAction<number>,
     ) => {
-      state.columns = columnsNumber;
+      if (columnsNumber > 4) {
+        state.columns = 4;
+      } else {
+        state.columns = columnsNumber;
+      }
     },
   },
 });

@@ -5,11 +5,15 @@ import {
   StyledElementFiltersList,
   StyledFilterSection,
   StyledFiltersList,
+  StyledInputNumber,
 } from "./filtersSectionStyles";
 import { useStore } from "../../state/storeHooks";
+import { store } from "../../state/store";
+import { setColumnsNumber } from "../../state/slices/filterSlice";
 
 const FiltersSection = () => {
   const { sidePanelVisible } = useStore(({ app }) => app);
+  const { columns } = useStore(({ filter }) => filter);
 
   return (
     <>
@@ -22,6 +26,17 @@ const FiltersSection = () => {
             </StyledElementFiltersList>
             <StyledElementFiltersList>
               <ToneFilter />
+            </StyledElementFiltersList>
+            <StyledElementFiltersList>
+              <label htmlFor="columns">колонок</label>
+              <StyledInputNumber
+                name="columns"
+                type="number"
+                placeholder="from 1 to 4"
+                onChange={(e) =>
+                  store.dispatch(setColumnsNumber(parseInt(e.target.value, 10)))
+                }
+              />
             </StyledElementFiltersList>
           </StyledFiltersList>
         </StyledFilterSection>
