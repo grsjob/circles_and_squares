@@ -13,11 +13,12 @@ import {
   deleteColor,
   setColor,
   setColumnsNumber,
+  setTone,
 } from "../../state/slices/filterSlice";
 
 const FiltersSection = () => {
   const { sidePanelVisible } = useStore(({ app }) => app);
-  const { columns, tone, forms, colors } = useStore(({ filter }) => filter);
+  const { columns, tone, colors } = useStore(({ filter }) => filter);
 
   function handleChangeForColors(e: ChangeEvent<HTMLInputElement>) {
     if (e.target.checked) {
@@ -25,6 +26,10 @@ const FiltersSection = () => {
     } else {
       store.dispatch(deleteColor(e.target.name));
     }
+  }
+
+  function handleChangeForTone(e: ChangeEvent<HTMLInputElement>) {
+    store.dispatch(setTone(e.target.value));
   }
   return (
     <>
@@ -39,7 +44,7 @@ const FiltersSection = () => {
               />
             </StyledElementFiltersList>
             <StyledElementFiltersList>
-              <ToneFilter />
+              <ToneFilter tone={tone} handleChange={handleChangeForTone} />
             </StyledElementFiltersList>
             <StyledElementFiltersList>
               <label htmlFor="columns">колонок</label>
