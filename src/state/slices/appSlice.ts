@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface AppState {
   loading: boolean;
+  sidePanelVisible: boolean;
 }
 const initialState: AppState = {
   loading: true,
+  sidePanelVisible: false,
 };
 
 const slice = createSlice({
@@ -18,9 +20,13 @@ const slice = createSlice({
     endLoading: (state) => {
       state.loading = false;
     },
+    sidePanelVisibleToggle: (state) => {
+      state.sidePanelVisible = !state.sidePanelVisible;
+    },
   },
 });
 
-export const { startLoading, endLoading, initializeApp } = slice.actions;
+export const { startLoading, endLoading, sidePanelVisibleToggle } =
+  slice.actions;
 
 export default slice.reducer;

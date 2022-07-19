@@ -1,8 +1,15 @@
 import React, { useId } from "react";
 import ListItem from "../listItem/ListItem";
 import { IData } from "../../types/data";
-import { StyledFormsList } from "./formsListStyles";
+import {
+  BurgerButton,
+  FormListHeader,
+  StyledFormsList,
+} from "./formsListStyles";
 import FormsFilter from "../filters/forms-filter/FormsFilter";
+import { store } from "../../state/store";
+import { sidePanelVisibleToggle } from "../../state/slices/appSlice";
+import { useStore } from "../../state/storeHooks";
 
 interface FormsListSectionProps {
   data: IData[];
@@ -10,13 +17,21 @@ interface FormsListSectionProps {
 }
 
 const FormsListSection = ({ data, columns }: FormsListSectionProps) => {
+  const { sidePanelVisible } = useStore(({ app }) => app);
+
   return (
     <section>
       <h2 className="visually-hidden">Список фигур</h2>
-      <header>
+      <FormListHeader>
+        <BurgerButton
+          sidePanelVisible={sidePanelVisible}
+          onClick={() => store.dispatch(sidePanelVisibleToggle())}
+        >
+          <span></span>
+        </BurgerButton>
         <FormsFilter />
-      </header>
-      <StyledFormsList>
+      </FormListHeader>
+      <StyledFormsList columns={columns}>
         {data.map((item) => (
           <ListItem
             key={Math.random().toString(32).substring(0, 5)}

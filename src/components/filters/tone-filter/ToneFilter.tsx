@@ -1,10 +1,11 @@
 import React from "react";
 import { store } from "../../../state/store";
 import { setTone } from "../../../state/slices/filterSlice";
+import { StyledTonesList } from "./toneFilterStyles";
 
 const ToneFilter = () => {
   return (
-    <ul>
+    <StyledTonesList>
       <li>
         <input
           type="radio"
@@ -32,7 +33,7 @@ const ToneFilter = () => {
         />
         <label htmlFor="light">светлые</label>
       </li>
-    </ul>
+    </StyledTonesList>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { store } from "../../../state/store";
 import { deleteForm, setForm } from "../../../state/slices/filterSlice";
+import { StyledFormsFilter } from "./formsFilterStyles";
 
 const FormsFilter = () => {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -11,7 +12,7 @@ const FormsFilter = () => {
     }
   }
   return (
-    <ul>
+    <StyledFormsFilter>
       <li>
         <input type="checkbox" name="circle" onChange={handleChange} />
         <label htmlFor="circle">круги</label>
@@ -24,7 +25,7 @@ const FormsFilter = () => {
         <input type="checkbox" name="triangle" onChange={handleChange} />
         <label htmlFor="triangle">треугольники</label>
       </li>
-    </ul>
+    </StyledFormsFilter>
   );
 };
 

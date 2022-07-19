@@ -33,10 +33,22 @@ const slice = createSlice({
     setTone: (state, { payload: tone }: PayloadAction<string>) => {
       state.tone = tone;
     },
+    setColumnsNumber: (
+      state,
+      { payload: columnsNumber }: PayloadAction<number>,
+    ) => {
+      state.columns = columnsNumber;
+    },
   },
 });
 
-export const { setForm, deleteForm, setColor, deleteColor, setTone } =
-  slice.actions;
+export const {
+  setForm,
+  deleteForm,
+  setColor,
+  deleteColor,
+  setTone,
+  setColumnsNumber,
+} = slice.actions;
 
 export default slice.reducer;
